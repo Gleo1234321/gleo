@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcuCargo Express</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k6TfQoc+g4h/5K5YY5/melQ1wXfBC6b12zW1x+pCfjDbGns6VbsGtDshkzQenpcniHgZKngj5Rpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            height: 100%;
+            width: 100%;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            margin-left: 15px;
+            width: 55px;
+            height: 55px;
+        }
+        header h1 {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 2rem;
+            font-style: italic;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #0056b3;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        nav ul li a i {
+            margin-right: 10px;
+        }
+        nav ul li a:hover {
+            background-color: #004494;
+            transform: translateY(-2px);
+        }
+        .iniciar a {
+            background-color: #dc3545;
+        }
+        .iniciar a:hover {
+            background-color: #c82333;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-slide img {
+            min-width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+        .carousel-indicators div {
+            width: 10px;
+            height: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .carousel-indicators .active {
+            background-color: #007bff;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .section h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .section p {
+            text-align: center;
+            color: #555;
+            line-height: 1.6;
+            margin: 0 20px;
+        }
+        .info-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .info-container img {
+            max-width: 150px;
+            margin: 10px;
+        }
+        .info-text {
+            max-width: 600px;
+            padding: 10px;
+        }
+        .recommended-stores {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .recommended-stores img {
+            max-width: 100%;
+            height: auto;
+        }
+        .whatsapp-contact {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .whatsapp-contact img {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EcuCargo Express</h1>
+                <img src="https://drive.google.com/uc?export=view&id=1toTQmKkN74t1E7phX6bzvuevoCBOmHXK" alt="Carrito de compras">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/pages/mision.html"><i class="fas fa-bullseye"></i>Misión</a></li>
+                    <li><a href="/pages/vision.html"><i class="fas fa-eye"></i>Visión</a></li>
+                    <li><a href="/pages/preciolibra.html"><i class="fas fa-dollar-sign"></i>Precio libra</a></li>
+                    <li class="iniciar"><a href="/pages/ec.html"><i class="fas fa-user"></i>Iniciar Sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://drive.google.com/uc?export=view&id=1toTQmKkN74t1E7phX6bzvuevoCBOmHXK" alt="Descripción de la imagen 1">
+                <img src="https://drive.google.com/uc?export=view&id=REEMPLAZAR_CON_ID_DE_IMAGEN_2" alt="Descripción de la imagen 2">
+                <img src="https://drive.google.com/uc?export=view&id=REEMPLAZAR_CON_ID_DE_IMAGEN_3" alt="Descripción de la imagen 3">
+            </div>
+            <div class="carousel-indicators">
+                <div class="active"></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- Sección de información: ¿CÓMO FUNCIONA EcuCargo? -->
+        <div class="section">
+            <h2>¿CÓMO FUNCIONA EcuCargo?</h2>
+            <p>Te ofrecemos una dirección de casillero postal en USA totalmente GRATIS al registrarte. Compra en tu tienda online favorita, envía al casillero, y nosotros lo importaremos hasta entregarlo en tus manos.</p>
+            <p>El proceso es fácil: compras, alertas en tu panel de usuario, recibimos en la casilla, importamos.</p>
+            <p class="section-highlight">EcuCargo, un servicio de la empresa EcuCargo EXPRESS, tiene más de 10 años en el mercado, ofreciendo seguridad y rapidez en tus entregas.</p>
+        </div>
+
+        <!-- Sección con imagen a la izquierda: ¡NO OLVIDES ALERTAR TU COMPRA! -->
+        <div class="section">
+            <div class="info-container">
+                <img src="https://drive.google.com/uc?export=view&id=REEMPLAZAR_CON_ID_DE_IMAGEN_4" alt="Imagen ilustrativa">
+                <div class="info-text">
+                    <h2>¡NO OLVIDES ALERTAR TU COMPRA!</h2>
+                    <p>Alertar la compra evitará retrasos en la importación y permitirá identificar el paquete con facilidad.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Tiendas Recomendadas -->
+        <div class="recommended-stores">
+            <img src="https://drive.google.com/uc?export=view&id=REEMPLAZAR_CON_ID_DE_IMAGEN_5" alt="Tiendas recomendadas">
+            <p>TIENDAS RECOMENDADAS</p>
+        </div>
+
+        <!-- Botón flotante de contacto por WhatsApp -->
+        <div class="whatsapp-contact">
+            <a href="https://wa.me/593XXXXXXXXX" target="_blank">
+                <img src="https://drive.google.com/uc?export=view&id=REEMPLAZAR_CON_ID_DE_IMAGEN_6" alt="WhatsApp">
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EcuCargo Express. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const carouselSlide = document.querySelector('.carousel-slide');
+        const carouselImages = document.querySelectorAll('.carousel-slide img');
+        const indicators = document.querySelectorAll('.carousel-indicators div');
+
+        let counter = 0;
+        const size = carouselImages[0].clientWidth;
+
+        function moveToImage(index) {
+            counter = index;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            updateIndicators();
+        }
+
+        function updateIndicators() {
+            indicators.forEach((indicator, index) => {
+                if (index === counter) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                moveToImage(index);
+            });
+        });
+
+        function autoSlide() {
+            counter = (counter + 1) % carouselImages.length;
+            moveToImage(counter);
+        }
+
+        setInterval(autoSlide, 3000);
+
+        window.addEventListener('resize', () => {
+            carouselSlide.style.transition = 'none';
+            moveToImage(counter);
+            carouselSlide.style.transition = 'transform 0.5s ease';
+        });
+    </script>
+</body>
+</html>

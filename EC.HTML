@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - EcuCargo Express</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            height: 100%;
+            width: 100%;
+            display: flex;
+        }
+
+        .login-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .login-form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            width: 40%;
+            padding: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-form-container h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        .login-form-container input[type="text"],
+        .login-form-container input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .login-form-container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .login-form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .login-form-container .signup-link {
+            margin-top: 20px;
+        }
+
+        .login-form-container .signup-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-form-container .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .promo-image {
+            width: 60%;
+            background: url("imagenes1/11.jpeg") no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form-container">
+            <h1>EcuCargo Express, Inicio de sesión</h1>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Nombre de Usuario" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <div>
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Recordarme</label>
+                </div>
+                <button type="submit">Entrar</button>
+                <p id="error-message" class="error-message">Credenciales incorrectas. Intenta nuevamente.</p>
+            </form>
+            <div class="signup-link">
+                <p>¿No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+            </div>
+        </div>
+        <div class="promo-image"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('login-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                if (username === 'admin' && password === 'admin123') {
+                    window.location.href = "EC2.html";
+                } else {
+                    document.getElementById('error-message').style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EC2 - Resumen de Envíos</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 10px 10px 0 0;
+            color: white;
+        }
+        .header img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .header h1 {
+            display: flex;
+            align-items: center;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .summary-item {
+            display: flex;
+            align-items: center;
+            background-color: #f1f3f5;
+            padding: 15px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .summary-item:hover {
+            background-color: #e2e6ea;
+        }
+        .summary-item img {
+            height: 40px;
+            margin-right: 15px;
+        }
+        .summary-item div {
+            text-align: left;
+        }
+        .summary-item div h4 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .summary-item div p {
+            margin: 5px 0 0;
+            color: #555;
+        }
+        .info-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-left: 4px solid #007bff;
+            border-radius: 5px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+        }
+        .tracking-section {
+            margin-top: 40px;
+        }
+        .tracking-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .search-box {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+        .search-box input {
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        .search-box button {
+            padding: 8px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s;
+        }
+        .search-box button:hover {
+            background-color: #0056b3;
+        }
+        .tracking-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .tracking-table th, .tracking-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+        .tracking-table th {
+            background-color: #f1f3f5;
+        }
+        .status-label {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            font-size: 0.9em;
+        }
+        .pre-alerta { background-color: #f8c15c; }
+        .en-transito { background-color: #007bff; }
+        .en-casillero { background-color: #28a745; }
+        .pendiente-pagar { background-color: #ffc107; color: black; }
+        .listo-retirar { background-color: #17a2b8; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1><img src="imagenes1/4.png" alt="Logo EcuCARGO"> EcuCARGO Express - Resumen de Envíos</h1>
+    </div>
+
+    <div class="summary">
+        <div class="summary-item">
+            <img src="imagenes1/5.png" alt="Icono Pre Alertas">
+            <div>
+                <h4>Pre Alertas</h4>
+                <p>1</p>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="imagenes1/6.png" alt="Icono Pendiente por despachar">
+            <div>
+                <h4>Pendiente por despachar</h4>
+                <p>0</p>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="imagenes1/7.png" alt="Icono Inventario recibido en oficina">
+            <div>
+                <h4>Inventario recibido</h4>
+                <p>1 - PENDIENTE POR PAGAR</p>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="imagenes1/8.png" alt="Icono Pre Alertas Aprobadas">
+            <div>
+                <h4>Pre Alertas Aprobadas</h4>
+                <p>53</p>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="imagenes1/9.png" alt="Icono Envíos paquetes Entregados">
+            <div>
+                <h4>Envíos paquetes Entregados</h4>
+                <p>48</p>
+            </div>
+        </div>
+        <div class="summary-item">
+            <img src="imagenes1/10.png" alt="Icono Envíos Consolidados Entregados">
+            <div>
+                <h4>Envíos Consolidados Entregados</h4>
+                <p>0</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h3>Información</h3>
+        <p>Es mandatorio agregar su número de casillero cuando compre en línea, ubíquelo en referencias.</p>
+    </div>
+
+    <div class="tracking-section">
+        <h2>Lista de Paquetes Registrados</h2>
+        <div class="search-box">
+            <input type="text" placeholder="Buscar paquete">
+            <button type="button">Buscar</button>
+        </div>
+        <table class="tracking-table">
+            <thead>
+                <tr>
+                    <th>Tracking</th>
+                    <th>Estado</th>
+                    <th>Fecha Pre Alerta</th>
+                    <th>Fecha Llegada a Casillero</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1ZG193780308183813</td>
+                    <td><span class="status-label pre-alerta">Pre alerta</span></td>
+                    <td>2024-08-01</td>
+                    <td>2024-08-01 10:45:30</td>
+                    <td><button type="button">Ver detalles</button></td>
+                </tr>
+                <tr>
+                    <td>TBA314781161791</td>
+                    <td><span class="status-label en-casillero">En Casillero</span></td>
+                    <td>2024-08-01</td>
+                    <td>2024-08-01 10:45:30</td>
+                    <td><button type="button">Ver detalles</button></td>
+                </tr>
+                <tr>
+                    <td>1ZG193780308183814</td>
+                    <td><span class="status-label en-transito">En Tránsito</span></td>
+                    <td>2024-08-01</td>
+                    <td>2024-08-01 10:45:30</td>
+                    <td><button type="button">Ver detalles</button></td>
+                </tr>
+                <tr>
+                    <td>1ZG193780308183815</td>
+                    <td><span class="status-label listo-retirar">Listo para retirar</span></td>
+                    <td>2024-08-01</td>
+                    <td>2024-08-01 10:45:30</td>
+                    <td><button type="button">Ver detalles</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
